@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Pizza } from '../models/pizza.model';
+import { ApiConstants } from '../constants/api.constants';
 
 @Injectable()
 export class PizzasService {
@@ -12,25 +13,25 @@ export class PizzasService {
 
   getPizzas(): Observable<Pizza[]> {
     return this.http
-      .get<Pizza[]>(`/api/pizzas`)
+      .get<Pizza[]>(`${ApiConstants.Pizzas}`)
       .pipe(catchError((error: any) => throwError(error.json())));
   }
 
   createPizza(payload: Pizza): Observable<Pizza> {
     return this.http
-      .post<Pizza>(`/api/pizzas`, payload)
+      .post<Pizza>(`${ApiConstants.Pizzas}`, payload)
       .pipe(catchError((error: any) => throwError(error.json())));
   }
 
   updatePizza(payload: Pizza): Observable<Pizza> {
     return this.http
-      .put<Pizza>(`/api/pizzas/${payload.id}`, payload)
+      .put<Pizza>(`${ApiConstants.Pizzas}/${payload.id}`, payload)
       .pipe(catchError((error: any) => throwError(error.json())));
   }
 
   removePizza(payload: Pizza): Observable<Pizza> {
     return this.http
-      .delete<any>(`/api/pizzas/${payload.id}`)
+      .delete<any>(`${ApiConstants.Pizzas}/${payload.id}`)
       .pipe(catchError((error: any) => throwError(error.json())));
   }
 }
