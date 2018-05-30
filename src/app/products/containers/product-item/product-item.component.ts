@@ -9,8 +9,6 @@ import * as fromStore from '../../store';
 import { Pizza } from '../../models/pizza.model';
 import { Topping } from '../../models/topping.model';
 
-
-
 @Component({
     selector: 'product-item',
     styleUrls: ['product-item.component.scss'],
@@ -26,6 +24,7 @@ export class ProductItemComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        this.store.dispatch(new fromStore.LoadToppings());
         this.pizza$ = this.store.select(fromStore.getSelectedPizza);
     }
 
