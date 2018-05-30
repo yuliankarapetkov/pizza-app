@@ -16,7 +16,7 @@ import { Topping } from '../../models/topping.model';
 })
 export class ProductItemComponent implements OnInit {
     pizza$: Observable<Pizza>;
-    visualise: Pizza;
+    visualise$: Observable<Pizza>;
     toppings$: Observable<Topping[]>;
 
     constructor(
@@ -24,12 +24,14 @@ export class ProductItemComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.store.dispatch(new fromStore.LoadToppings());
+        this.visualise$ = this.store.select(fromStore.getPizzaVisualised);
         this.pizza$ = this.store.select(fromStore.getSelectedPizza);
         this.toppings$ = this.store.select(fromStore.getAllToppings);
+
     }
 
     onSelect(event: number[]) {
+        this.store.dispatch(new fromStore.VisualiseToppings(event));
     }
 
     onCreate(event: Pizza) {

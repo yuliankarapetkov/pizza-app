@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
 
-import { Actions, Effect } from '@ngrx/effects';
-import { catchError, map, switchMap } from 'rxjs/internal/operators';
+import { Effect, Actions } from '@ngrx/effects';
 import { of } from 'rxjs';
+import { map, catchError, switchMap } from 'rxjs/operators';
 
-import * as toppingActions from '../actions/toppings.action';
-import * as fromServices from '../../services';
+import * as toppingsActions from '../actions/toppings.action';
+import * as fromServices from '../../services/toppings.service';
 
 @Injectable()
-export class ToppingsEffect {
+export class ToppingsEffects {
     constructor(
         private actions$: Actions,
         private toppingsService: fromServices.ToppingsService
-    ) {}
+    ) {
+    }
 
     @Effect()
     loadToppings$ = this.actions$
-        .ofType(toppingActions.LOAD_TOPPINGS)
+        .ofType(toppingsActions.LOAD_TOPPINGS)
         .pipe(switchMap(() => {
             return this.toppingsService
                 .getToppings()
                 .pipe(
-                    map(toppings => new toppingActions.LoadToppingsSuccess(toppings)),
-                    catchError(error => of(new toppingActions.LoadToppingsFail(error)))
+                    map(toppings => new toppingsActions.LoadToppingsSuccess(toppings)),
+                    catchError(error => of(new toppingsActions.LoadToppingsFail(error)))
                 );
         }));
 }

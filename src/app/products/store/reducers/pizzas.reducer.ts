@@ -1,5 +1,5 @@
-import { Pizza } from '../../models/pizza.model';
 import * as fromPizzas from '../actions/pizzas.action';
+import { Pizza } from '../../models/pizza.model';
 
 export interface PizzaState {
     entities: { [id: number]: Pizza };
@@ -38,7 +38,7 @@ export function reducer(state = initialState, action: fromPizzas.PizzasAction): 
                 ...state,
                 loading: false,
                 loaded: true,
-                entities: entities
+                entities
             };
         }
 
