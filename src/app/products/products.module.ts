@@ -20,18 +20,18 @@ import * as fromServices from './services';
 
 // routes
 export const ROUTES: Routes = [
-  {
-    path: '',
-    component: fromContainers.ProductsComponent,
-  },
-  {
-    path: ':id',
-    component: fromContainers.ProductItemComponent,
-  },
-  {
-    path: 'new',
-    component: fromContainers.ProductItemComponent,
-  },
+    {
+        path: '',
+        component: fromContainers.ProductsComponent,
+    },
+    {
+        path: 'new',
+        component: fromContainers.ProductItemComponent,
+    },
+    {
+        path: ':pizzaId',
+        component: fromContainers.ProductItemComponent,
+    },
 ];
 
 @NgModule({
