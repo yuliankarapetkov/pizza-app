@@ -7,7 +7,7 @@ import { StoreModule, MetaReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
-import { reducers } from './store';
+import { reducers, effects } from './store';
 
 import { AppComponent } from './app.component';
 
@@ -41,7 +41,7 @@ export const ROUTES: Routes = [
         BrowserAnimationsModule,
         RouterModule.forRoot(ROUTES),
         StoreModule.forRoot(reducers, { metaReducers }),
-        EffectsModule.forRoot([]),
+        EffectsModule.forRoot(effects),
         StoreRouterConnectingModule,
         environment.development ? StoreDevtoolsModule.instrument() : [],
     ],
