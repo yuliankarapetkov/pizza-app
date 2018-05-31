@@ -157,66 +157,6 @@
         }
       ],
       "id": 4
-    },
-    {
-      "name": "Test Pizza",
-      "toppings": [
-        {
-          "id": 1,
-          "name": "anchovy"
-        },
-        {
-          "id": 5,
-          "name": "mozzarella"
-        },
-        {
-          "id": 9,
-          "name": "pepper"
-        },
-        {
-          "id": 2,
-          "name": "bacon"
-        },
-        {
-          "id": 6,
-          "name": "mushroom"
-        },
-        {
-          "id": 10,
-          "name": "pepperoni"
-        },
-        {
-          "id": 3,
-          "name": "basil"
-        },
-        {
-          "id": 7,
-          "name": "olive"
-        },
-        {
-          "id": 11,
-          "name": "sweetcorn"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "name": "Test Pizza 2",
-      "toppings": [
-        {
-          "id": 1,
-          "name": "anchovy"
-        },
-        {
-          "id": 5,
-          "name": "mozzarella"
-        },
-        {
-          "id": 9,
-          "name": "pepper"
-        }
-      ],
-      "id": 6
     }
   ]
 }
